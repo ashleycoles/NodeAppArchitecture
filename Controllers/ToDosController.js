@@ -26,7 +26,7 @@ function addTodo(req, res) {
 function completeTodo(req, res) {
     let id = ObjectId(req.params.id)
     DbService.connectToDB(function(db) {
-        completeTodo(db, id, function (result) {
+        TodosService.completeTodo(db, id, function (result) {
             if(result.modifiedCount){
                 res.json({success: true, msg: 'edited db', data: []})
             } else {
